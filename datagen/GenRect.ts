@@ -30,5 +30,12 @@ async function saveAsJpg(filePath:string){
 
 export function init(canvas:HTMLCanvasElement){
     gCanvas = canvas;
-    gCtx = gCanvas.getContext('2d');
+    let ctx = gCtx = gCanvas.getContext('2d');
+    let width = gCanvas.width;
+    let height = gCanvas.height;
+    ctx?.clearRect(0,0,width,height);
+    ctx!.fillStyle='red';
+    ctx?.rect(10,10,20,10);
+    ctx?.fill();
+    saveAsJpg('../out/test.jpg')
 }
